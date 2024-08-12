@@ -1,33 +1,76 @@
 <!DOCTYPE html>
-<html lang="es-AR">
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE-edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Moss</title>
+<html lang="es-ar">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width">
+</head>
+<body>
 
-		<link href="style.css" rel="stylesheet">
-		<link href="nav.css" rel="stylesheet">
-	</head>
-	<body>
-		<nav>
-			<div class="contenedor">
-				<p id="nombre">Moss</p>
-			</div>
-			<div id="navegador-barra" class="menuEncubierto">
-				<div class="contenedor">
-					<a href="#" id="cerrarMenu">X</a>
-					<a href="moss.html">inicio</a>
-					<a href="proyectos.html">proyectos</a>
-				</div>
-			</div>
-		</nav>
-		<section id="presentacion">
-			<div class="contenedor">
-				<div id="titulos">
-					<h2 id="titulo1">Desarrollo Web Front End</h2>
-					<h2 id="titolo2">Diseño UI</h2>
-				</div>
-			</div>
-	</body>
+<svg height="600" width="980" style="background-color:#eee">
+  
+  <!-- corona -->
+  <path id="corona" d="M 100,100 h 50 v 20 h 40 v -20 h 50 v 20 h 40 v -20 h 50 v 50 h -230 Z" style="fill:#09f;" />
+  
+  <!-- letra M -->
+  <path id="letraM" d="M 100,175 h 230 v 165 h -50 v -125 h -40 v 125 h -50 v -125 h -40 v 125 h -50  Z" style="fill:green;" />
+  
+  <!-- letra O -->
+  <path id="letraO" d="m 350,175 h 165 v 165 h -165 v -120 h 50 v 75 h 65 v -75 h -115 z" style="fill:#000000;" />
+  
+  <!-- letra S1 -->
+  <path id="letraS1" d="m 535,175 h 165 v 50 h -50 v -10 h -65 v 25 h 115 v 100 h -165 v -50 h 50 v 10 h 65 v -25 h -115 z" style="fill:#000000;" />
+  
+  <!-- letra S2 -->
+  <path id="letraS2" d="m 720,175 h 165 v 50 h -50 v -10 h -65 v 25 h 115 v 100 h -165 v -50 h 50 v 10 h 65 v -25 h -115 z" style="fill:#000000;" />
+
+</svg>
+
+
+
+<script>
+
+const letraM = document.getElementById('letraM');
+letraM.style.fill = "#f0f";
+cambioM = 0
+
+function cambioMcolor () {
+  if (cambioM) {
+    letraM.style.fill = "#f00";
+	cambioM = 0;
+  } else {
+    letraM.style.fill = "#f0f";
+	cambioM = 1;
+  }
+  console.log('funciona')
+}
+
+setInterval(cambioMcolor, 150);
+
+const letraS1 = document.getElementById('letraS1')
+let y = 175;
+let d = "";
+
+function moverS1 () {
+  d = "m 535," + y + " h 165 v 50 h -50 v -10 h -65 v 25 h 115 v 100 h -165 v -50 h 50 v 10 h 65 v -25 h -115 z";
+  console.log(d);
+  letraS1.setAttribute('d', d);
+  if (y === 175) {
+    y -= 50;
+	console.log('y - 50');
+	console.log(y);
+  } else if (y === 125) {
+    y += 100;
+	console.log('y + 100');
+  } else if (y === 225) {
+    y -= 50;
+	console.log('y 225');
+  }
+  console.log('sss');
+}
+setInterval(moverS1, 1000);
+
+</script>
+
+</body>
 </html>
